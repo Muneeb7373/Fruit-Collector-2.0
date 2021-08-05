@@ -39,16 +39,6 @@ class Game{
         
                 form.hide();
 
-                player.score=1
-                player.score = player.score - 1
-                player.score = player.score+1
-                score=score+1
-
-                score.update()
-                player.score.update()
-                player.update()
-                update()
-
                 Player.getPlayerInfo();
                  image(back_img, 0, 0, 1000, 800);
                  var x =100;
@@ -68,11 +58,16 @@ class Game{
                      if(index === player.index){
                          
                        //add code to display the player's name on the respective basket.
-                       Text(allPlayers[plr].name, x-25, y+25);
+                       text(allPlayers[plr].name, x-25, y+25);
 
                          
                      }
                     
+                     textSize(25)
+                     fill("white")
+                     text("Player1: "+ allPlayers.player1.score,50,50)
+                     text("Player2: "+ allPlayers.player2.score,50,100)
+
                       
                  
                  }
@@ -113,7 +108,8 @@ class Game{
                     for (var i = 0; i < fruitGroup.length; i++) {
                         if (fruitGroup.get(i).isTouching(players)) {
                             fruitGroup.get(i).destroy();
-                         
+                             player.score = player.score + 1
+                             player.update()
                             
                         }
                         
